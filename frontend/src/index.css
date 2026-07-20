@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-paper:         #F1F5F9;
+  --color-paper-dim:     #FFFFFF;
+  --color-ink:           #0F172A;
+  --color-ink-soft:      #64748B;
+  --color-teal:          #059669;
+  --color-teal-deep:     #047857;
+  --color-marigold:      #F59E0B;
+  --color-marigold-deep: #D97706;
+  --color-clay:          #EF4444;
+  --color-sand:          #E2E8F0;
+  --color-sand-line:     #E2E8F0;
+
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-mono:    ui-monospace, "Cascadia Code", monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+::selection { background: #A7F3D0; color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-teal); outline-offset: 2px; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* ── Layout ── */
+.page-wrap { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+.page-section { @apply py-12 sm:py-16; }
+
+/* ── Typography ── */
+.page-title { @apply font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink; }
+.page-subtitle { @apply text-ink-soft text-base mt-2 max-w-2xl; }
+.section-label { @apply text-xs font-semibold uppercase tracking-wider text-teal; }
+.section-heading { @apply font-display text-xl sm:text-2xl font-bold text-ink; }
+
+/* ── Buttons ── */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none bg-teal text-white px-5 py-2.5 shadow-sm hover:bg-teal-deep hover:shadow-md active:scale-[0.98];
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none bg-white text-ink border border-sand-line px-5 py-2.5 shadow-sm hover:border-teal/40 hover:text-teal hover:shadow-md;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none text-ink-soft px-4 py-2 hover:bg-sand/60 hover:text-ink;
+}
+.btn-danger {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none bg-clay/10 text-clay border border-clay/20 px-4 py-2 hover:bg-clay/15;
+}
+
+/* ── Form ── */
+.input {
+  @apply w-full rounded-xl border border-sand-line bg-white px-4 py-2.5 text-sm text-ink placeholder:text-ink-soft/60 transition-colors focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none;
+}
+.label { @apply block text-sm font-medium text-ink mb-1.5; }
+
+/* ── Cards ── */
+.card {
+  @apply bg-paper-dim rounded-2xl border border-sand-line shadow-sm;
+}
+.card-hover {
+  @apply bg-paper-dim rounded-2xl border border-sand-line shadow-sm transition-all duration-200 hover:shadow-lg hover:border-teal/30 hover:-translate-y-0.5;
+}
+.card-body { @apply p-5 sm:p-6; }
+
+/* ── Badges ── */
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+}
+.badge-teal { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-teal/10 text-teal-deep; }
+.badge-amber { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-amber-100 text-amber-700; }
+.badge-slate { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-slate-100 text-slate-600; }
+
+/* ── Hero / marketing ── */
+.hero-gradient {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #064E3B 100%);
+}
+.mesh-bg {
+  background-image:
+    radial-gradient(at 40% 20%, rgba(5, 150, 105, 0.25) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+}
+
+/* ── Stat card ── */
+.stat-card {
+  @apply bg-paper-dim rounded-2xl border border-sand-line shadow-sm p-5 flex flex-col gap-1;
+}
+.stat-value { @apply font-display text-3xl font-bold text-ink; }
+.stat-label { @apply text-sm text-ink-soft font-medium; }
+
+/* ── Progress ── */
+.progress-track { @apply h-2 bg-sand rounded-full overflow-hidden; }
+.progress-fill { @apply h-full bg-gradient-to-r from-teal to-emerald-400 rounded-full transition-all duration-500; }
+
+/* ── Glass nav ── */
+.glass-nav {
+  @apply bg-white/80 backdrop-blur-xl border-b border-sand-line/80 shadow-sm;
+}
+
+/* ── Auth split panel ── */
+.auth-panel {
+  @apply min-h-[calc(100vh-4rem)] grid lg:grid-cols-2;
+}
+.auth-brand {
+  @apply hidden lg:flex flex-col justify-between p-12 text-white relative overflow-hidden;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #064E3B 100%);
+  background-image:
+    radial-gradient(at 40% 20%, rgba(5, 150, 105, 0.25) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+    linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #064E3B 100%);
+}
+.auth-form-wrap {
+  @apply flex items-center justify-center p-6 sm:p-12 bg-paper-dim;
+}
